@@ -1,35 +1,44 @@
-# Solutions Engineering Template Repository
-A template repository that contains all required files (LICENSE, SUPPORT, CONTRIBUTING, etc) as outlined in the org standards.  
+# project-jarvis
 
-
-The sections below are recommended in your project's README.md file. 
+Like baby Yoda, Starlord, and even Thanos, we all have to start somewhere...  
 
 ## Overview
-Provide a short overview of the project.
+
+Commnad line interface combinging the following tools:
+- f5-conx-core
+- f5-corkscrew
 
 ## Getting Started
-Provide a quick example of how to use your code.  This should provide the user with a launch point to quickly see what the project can offer them. 
+
+Pending
 
 ## Installation
-Outline the requirements and steps to install this project. 
+
+snap your fingers!
 
 ## Usage
+
 Outline how the user can use your project and the various features the project offers. 
 
 ## Development
+
 Outline any requirements to setup a development environment if someone would like to contribute.  You may also link to another file for this information. 
 
 ## Support
+
 For support, please open a GitHub issue.  Note, the code in this repository is community supported and is not supported by F5 Networks.  For a complete list of supported projects please reference [SUPPORT.md](SUPPORT.md).
 
 ## Community Code of Conduct
+
 Please refer to the [F5 DevCentral Community Code of Conduct](code_of_conduct.md).
 
 
 ## License
+
 [Apache License 2.0](LICENSE)
 
 ## Copyright
+
 Copyright 2014-2020 F5 Networks Inc.
 
 
