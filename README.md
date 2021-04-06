@@ -5,8 +5,22 @@ Like baby Yoda, Starlord, and even Thanos, we all have to start somewhere...
 ## Overview
 
 Commnad line interface combinging the following tools:
-- f5-conx-core
-- f5-corkscrew
+
+* f5-conx-core
+* f5-corkscrew
+
+## architecture
+
+Thinking of ways to save connectivity information for subsequent calls without having to "connect" everytime
+
+idea 1: spawn core connectivity process as "detached" for the connect command.  have it run for a certain amount of time or for the duration of the auth token.  Need to figure out how to connect to the process to send/receive information
+
+https://stackoverflow.com/questions/29896474/detach-node-child-process-after-receiving-a-first-message
+
+
+idea 2: spawn core connectivity process off as another script that listens on a port for subsequent calls
+https://nodejs.org/api/net.html
+
 
 ## Getting Started
 

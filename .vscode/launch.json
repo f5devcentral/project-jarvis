@@ -15,7 +15,7 @@
                 "--timeout",
                 "999999",
                 "--colors",
-                "${workspaceFolder}/src/tests/something.unit.test.ts",
+                "${workspaceFolder}/tests/conx.int.tests.ts",
             ],
             "internalConsoleOptions": "neverOpen",
             "protocol": "inspector",
@@ -35,6 +35,12 @@
             ],
             "internalConsoleOptions": "neverOpen",
             "protocol": "inspector",
+        },
+        {
+            "type": "node",
+            "name": "attach to cli",
+            "request": "attach",
+            "port": 5555
         }
     ]
 }
