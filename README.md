@@ -8,6 +8,32 @@ Commnad line interface combinging the following tools:
 
 * f5-conx-core
 * f5-corkscrew
+* acc
+
+
+## ideas:
+
+* nodejs based full featured cli creation tool
+  * https://oclif.io/
+  * features:
+    *** TypeScript support**
+    * flag/argument parsing
+    * speed (35 total deps)
+    * cli generator
+    * **testing helpers**
+    * auto-documentation
+    * plugins
+    * hooks?
+    * **auto-updating installers (single binary install -> no base nodejs install required)**
+    * **auto-complete**
+
+* nodejs rest API framework
+  * https://docs.feathersjs.com/
+  * features:
+    * full framework for rest api creation
+    * easily enable web-socket connectivity
+    * testing framework
+    * swagger add-on
 
 ## architecture
 
