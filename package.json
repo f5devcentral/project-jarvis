@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "tsc --noEmit && eslint 'src/**/*.{js,ts,tsx}' 'src/tests/**/*.{js,ts,tsx}'",
     "test": "nyc mocha -r ts-node/register \"tests/**/*.test.ts\"",
+    "debug": "node -r ts-node/register --inspect src/cli.ts",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
     "build-code-docs": "typedoc --out code_docs src",
     "build-package": "tsc -p ."

@@ -47,6 +47,12 @@ https://stackoverflow.com/questions/29896474/detach-node-child-process-after-rec
 idea 2: spawn core connectivity process off as another script that listens on a port for subsequent calls
 https://nodejs.org/api/net.html
 
+## testing
+
+node -r ts-node/register --inspect src/cli.ts
+
+node -r ts-node/register --inspect src/cli.ts connect f5_ip -u admin -p admin
+
 
 ## Getting Started
 

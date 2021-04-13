@@ -35,12 +35,6 @@
             ],
             "internalConsoleOptions": "neverOpen",
             "protocol": "inspector",
-        },
-        {
-            "type": "node",
-            "name": "attach to cli",
-            "request": "attach",
-            "port": 5555
         }
     ]
 }

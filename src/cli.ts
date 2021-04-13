@@ -28,11 +28,7 @@ log.console = true;
 let device: F5Client | undefined;
 
 async function cliConnect(input: any) {
-    // console.log('incoming param (file):', filePath);
 
-    console.log(input);
-
-    // function to do stuff when the command below is called...
     device = new F5Client(input.device, input.username, input.password)
 
     await device
@@ -40,16 +36,7 @@ async function cliConnect(input: any) {
         .then(disc => {
             console.log('connected');
             const x = process.env.FIVER_TOKEN;
-            let timeout = 120;
-            const token = setInterval(() => {
-                this.butter = 'asdf';
-                timeout --;
-                const timr = token;
-                // 
-                if (timeout <= 10) {
-                    clearInterval(timr);
-                }
-            }, 1000)
+
         })
         .catch(err => {
             console.error(err);
