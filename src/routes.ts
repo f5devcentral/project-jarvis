@@ -17,6 +17,7 @@
 'use strict';
 
 import Router from 'koa-router';
+import { koaServer, device, log } from './entoli_service';
 
 const router = new Router();
 
@@ -26,12 +27,47 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/disconnect', async (ctx, next) => {
-    ctx.body = '\n\nquitting -> goodbye!\n\n';
+    ctx.body = '\nquitting -> goodbye!\n\n';
     await next();
+    koaServer.close();
 })
 
 router.get('/status', async (ctx, next) => {
-    ctx.body = { msg: 'show status of bigip connection' };
+    ctx.body = { 
+        status: 'connected', 
+        hostname: device.host.hostname,
+        managementAddress: device.host.managementAddress,
+        version: device.host.version,
+        product: device.host.product,
+        isClustered: device.host.isClustered,
+        isVirtual: device.host.isVirtual,
+        atc: {}
+    };
+    if(device?.as3) {
+        ctx.body.atc.as3 = device.as3.version.version
+    }
+    if(device?.do) {
+        ctx.body.atc.do = device.do.version.version
+    }
+    // ctx.body = `${JSON.stringify(ctx.body)}\n`
+    // ctx.body = ctx.body
+    await next();
+})
+
+router.get('/status/token', async (ctx, next) => {
+    ctx.body = `tokenTimeout: ${device.mgmtClient.tokenTimeout}\n`;
+    await next();
+})
+
+router.get('/logs', async (ctx, next) => {
+    ctx.body = log.journal;
+    await next();
+})
+router.get('/logs/text', async (ctx, next) => {
+    ctx.body = [
+        log.journal.join('\n'),
+        '\n'
+    ].join();
     await next();
 })
 

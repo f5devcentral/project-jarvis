@@ -9,8 +9,10 @@
   "scripts": {
     "lint": "tsc --noEmit && eslint 'src/**/*.{js,ts,tsx}' 'src/tests/**/*.{js,ts,tsx}'",
     "test": "nyc mocha -r ts-node/register \"tests/**/*.test.ts\"",
+    "watch": "tsc -watch -p ./",
     "debug": "node -r ts-node/register --inspect src/cli.ts",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "debug-service": "nodemon ./src/entoli_service.ts ben one two",
     "build-code-docs": "typedoc --out code_docs src",
     "build-package": "tsc -p ."
   },
@@ -56,6 +58,10 @@
   },
   "devDependencies": {
     "@types/assert": "^1.5.4",
+    "@types/koa": "^2.13.3",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.4.2",
     "@types/mocha": "^8.2.2",
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
@@ -63,13 +69,23 @@
     "assert": "^2.0.0",
     "eslint": "^7.23.0",
     "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "f5-conx-core": "github:dumpysquare/f5-conx-core",
+    "f5-conx-core": "file:../f5-conx-core/f5-conx-core-0.10.0.tgz",
     "f5-corkscrew": "github:f5devcentral/f5-corkscrew",
+    "koa": "^2.13.1",
+    "koa-async-validator": "^0.4.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-bunyan-logger": "^2.1.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa2-swagger-ui": "^5.1.0",
     "yargs": "^16.2.0"
   }
 }

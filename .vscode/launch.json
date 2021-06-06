@@ -18,6 +18,7 @@
                 "${workspaceFolder}/tests/conx.int.tests.ts",
             ],
             "internalConsoleOptions": "neverOpen",
+            "autoAttachChildProcesses": true,
             "protocol": "inspector",
         },
         {

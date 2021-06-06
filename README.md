@@ -1,6 +1,8 @@
 # project-jarvis
 
-Like baby Yoda, Starlord, and even Thanos, we all have to start somewhere...  
+Like baby Yoda, Starlord, and even Thanos, we all have to start somewhere... 
+
+command (english) => entoli (greek)
 
 ## Overview
 
@@ -10,8 +12,29 @@ Commnad line interface combinging the following tools:
 * f5-corkscrew
 * acc
 
+## flows
 
-## ideas:
+### entoli declare
+
+this workflow would be in a git repo.  Install entoli, run "entoli declare" and entoli should read the repo (and entoli config file) and understand the project layout.  From there it can get all the repo changes (add/edit/delete), then deploy all changes.  
+
+Initial flow is focused on AS3, but could also include DO and other setups
+
+* detect running status
+  * git or local
+* read config file
+  * determine project structure
+* collect changed files (edit/add/delete)
+* deploy changes (like as3 flow below)
+
+### entoli connect -> declare as3
+
+This flow will be focused on the basis as3 declare flow via local command line.
+
+* entoli connect 10.10.10.3 -u admin -password se1c41fbn
+  * This will create a service and use the service to connect to the f5, test connectivity and get necessary details to make the as3 post (make sure as3 is installed)
+
+## ideas for frameworks:
 
 * nodejs based full featured cli creation tool
   * https://oclif.io/
