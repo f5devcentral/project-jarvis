@@ -26,7 +26,7 @@ import { routes } from './routes';
 import Logger from 'f5-conx-core/dist/logger'
 import { ExtHttp, F5Client } from 'f5-conx-core'
 import { EventEmitter } from 'events';
-
+import { socket } from './serverSocket'
 
 const port = 3000;
 const app = new Koa();
@@ -35,7 +35,8 @@ const args = process.argv;
 export const log = new Logger('F5_ENTOLI_LOG');
 log.console = true
 
-log.info('\n', 'entoli_service_args', args, '\n')
+console.log('\n')
+log.info('entoli_service_args', args)
 
 const host = args[2]
 const user = args[3]
@@ -46,6 +47,8 @@ if (!host || !user || !password) {
   log.info('---not right envs passed in---')
 }
 
+process.on('message', msg => log.info('message in child from parent', msg))
+
 const eventer = new EventEmitter();
 
 const cacheDir = path.join(__dirname, 'cache');
@@ -54,7 +57,7 @@ const cacheDir = path.join(__dirname, 'cache');
 
 log.info('cache dir', cacheDir);
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const extHttp = new ExtHttp({ rejectUnauthorized: false, eventEmitter: eventer });
 
@@ -78,9 +81,8 @@ device
     .discover()
     .then(disc => {
         log.info('connected', disc, '\n');
-        // const x = process.env.FIVER_TOKEN;
-
-    })
+        socket.listen();
+      })
     .catch(err => {
         console.error('connect err', err);
         koaServer.close();

@@ -18,21 +18,29 @@
 
 import Router from 'koa-router';
 import { koaServer, device, log } from './entoli_service';
+import { socket } from './serverSocket';
+import { timer } from './timer';
 
 const router = new Router();
 
 router.get('/', async (ctx, next) => {
-    ctx.body = { msg: 'base' };
-    await next();
+    log.info("routes", router.stack.map(el => el.path))
 })
 
 router.get('/disconnect', async (ctx, next) => {
     ctx.body = '\nquitting -> goodbye!\n\n';
-    await next();
     koaServer.close();
+    socket.close();
+})
+
+router.get('/as3/post', async (ctx, next) => {
+    ctx.body = { msg: 'posting as3 started' };
+    console.log('\n')
+    timer()
 })
 
 router.get('/status', async (ctx, next) => {
+    log.info('status called')
     ctx.body = { 
         status: 'connected', 
         hostname: device.host.hostname,
@@ -51,7 +59,7 @@ router.get('/status', async (ctx, next) => {
     }
     // ctx.body = `${JSON.stringify(ctx.body)}\n`
     // ctx.body = ctx.body
-    await next();
+    // await next();
 })
 
 router.get('/status/token', async (ctx, next) => {

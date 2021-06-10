@@ -69,7 +69,7 @@ ted@r2d2:~$ curl localhost:3000/logs/text
   product: 'BIG-IP'
 }
 ,
-ted@r2d2:~$ curl localhost:3000/logs
+ted@r2d2:~$ 
 ["[2021-06-06T20:48:40.536Z] [INFO]: \n entoli_service_args [\n  '/home/ted/.nvm/versions/node/v14.16.1/bin/node',\n  '/home/ted/projects/project-jarvis/dist/entoli_service.js',\n  '10.200.202.131',\n  'admin',\n  'benrocks'\n] \n","[2021-06-06T20:48:40.541Z] [INFO]: cache dir /home/ted/projects/project-jarvis/dist/cache","[2021-06-06T20:48:40.552Z] [INFO]: started entoli service on: 3000","[2021-06-06T20:48:40.997Z] [INFO]: connected {\n  hostname: 'bigip-tparty05.benlab.io',\n  version: '14.1.2.6',\n  product: 'BIG-IP'\n} \n"]ted@r2d2:~$ curl localhost:3000/logs | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
